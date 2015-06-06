@@ -1,19 +1,25 @@
-<h1>All Products</h1>
+<h1>Welcome to Sunglasses 4 Days</h1>
 
-<ul>
-    <% @products.each do |product| %>
-        <li>
-            <strong> <%= product.name %></strong> 
-             <%= product.price %>
-             <%= product.weight %>
-             <%= product.inventory %>
-             <%= product.description %>
-             <%= product.category %>
-             <%= image_tag product.image.url(:large) %>
+<div class="row">
+  <div class="col-md-12"><h2>View All Sunglasses</h2></div>
+        <% @products.each do |product| %>
+              <div class="col-md-12">Name: <%= product.name %></div>
+              <div class="col-md-12">Price: $<%= product.price %></div>
+              <div class="col-md-12">Description: <%= product.description %></div>
+              <div class="col-md-12"><%= link_to "#{"View the " + product.name + " Sunglasses"}", product_path(product.name) %></div>
+              <div class="col-md-12"><%= image_tag product.image.url(:large) %></div>
+<% end %>
+<div class="col-md-4"></div>
+ <div class="col-md-4 btn btn-info"><%= link_to "Add Product", new_product_path %></div>
+<div class="col-md-4"></div>
 
-        </li>
-    <% end %>
-</ul>
+<br>
+<br>
+<br>
+<div class="col-md-12"></div>
+<div class="col-md-12"></div>
+<div class="col-md-12"></div>
+<div class="col-md-12"></div>
+<div class="col-md-12">End of Page</div>
 
-<div class="col-md-4 btn btn-info"><%= link_to "Add Product", new_product_path %></div>
 

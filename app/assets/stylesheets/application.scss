@@ -1,0 +1,31 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+ padding-top: 70px;
+ } 
+
+ h1 {
+ 	text-align: center;
+ }
+
+ #email-login {
+ 	width: 100px;
+ }
+ #password-login {
+ 	width: 100px;
+ }
+
+ #header-button:hover {
+ border: 1px solid black;
+ }
+
+ .row {
+ 	text-align: center;
+}
+img { 
+	max-width: 100%; height: auto; 
+}
+.show-text {
+	text-align: center;
+}
