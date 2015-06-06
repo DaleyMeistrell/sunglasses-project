@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: sunglasses-project_production
-  username: sunglasses-project
-  password: <%= ENV['SUNGLASSES-PROJECT_DATABASE_PASSWORD'] %>
