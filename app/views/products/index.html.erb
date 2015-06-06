@@ -9,6 +9,11 @@
              <%= product.inventory %>
              <%= product.description %>
              <%= product.category %>
+             <%= image_tag product.image.url(:large) %>
+
         </li>
     <% end %>
 </ul>
+
+<div class="col-md-4 btn btn-info"><%= link_to "Add Product", new_product_path %></div>
+
