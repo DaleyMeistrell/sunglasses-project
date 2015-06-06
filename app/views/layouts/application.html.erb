@@ -9,6 +9,68 @@
 </head>
 <body>
 
+<div class="container-fluid">    
+    <!-- Second navbar for sign in -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> 
+          <%= link_to( image_tag("logo-sun.png", size: "50x50"), products_path) %>
+          <a class="navbar-brand" href="#"><!--Website Name--></a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sport", product_path(:Sport), :class => "btn btn-default btn-outline btn-circle collapsed", :id => "header-button" %></li>
+            <li><%= link_to "Retro", product_path(:Retro), :class => "btn btn-default btn-outline btn-circle collapsed", :id => "header-button" %></li>
+            <li><%= link_to "Wild", product_path(:Wild), :class => "btn btn-default btn-outline btn-circle collapsed", :id => "header-button" %></li>
+            <li><a href="#" class="btn btn-default btn-outline btn-circle collapsed" id="header-button">Contact</a></li>
+
+
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" id="header-button">Login</a>
+            </li>
+            <li><%= link_to "Sign Up", users_new_path, :class => "btn btn-default btn-outline btn-circle collapsed", :id => "header-button"  %></li>
+            <li><% if current_user %><%= link_to 'Log Out', logout_path, method: :delete, :class => "btn btn-default btn-sm btn-outline btn-circle collapsed" %></li>
+            <li><small>Logged in as:<br><%= current_user.name %></small></li><% end %>
+              <!-- <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-search" aria-expanded="false" aria-controls="nav-search">Sign Up</a> -->
+              <%#= link_to "Sign Up", {controller: "user", action: "new"}, class: "btn btn-default btn-outline btn-circle collapsed"  data-toggle: "collapse" href: "#nav-search" aria-expanded: "false" aria-controls: "nav-search" %>
+
+              
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
+            <form class="navbar-form navbar-right form-inline" role="form">
+              <div class="form-group">
+                <label class="sr-only" for="Email">Email</label>
+                <input type="email" class="form-control" id="email-login" placeholder="Email" autofocus required />
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="Password">Password</label>
+                <input type="password" class="form-control" id="password-login" placeholder="Password" required />
+              </div>
+              <button type="submit" class="btn btn-success">Sign in</button>
+            </form>
+          </div>
+          <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-search">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+</div><!-- /.container-fluid -->
+
 <%= yield %>
 
 </body>
