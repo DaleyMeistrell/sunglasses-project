@@ -22,6 +22,9 @@ gem 'figaro'
 #lets us use paperclip with S3 easily
 gem 'aws-sdk', '< 2.0'
 
+# Gemfile
+  gem 'paperclip'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -48,8 +51,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Gemfile
-  gem 'paperclip'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
