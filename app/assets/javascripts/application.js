@@ -1,3 +1,5 @@
+< script src="http://api.wunderground.com/api/67be5ea9d5581cec/conditions.json">
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

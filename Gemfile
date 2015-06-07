@@ -18,6 +18,8 @@ gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'unicorn'
 
+gem 'httparty'
+
 # Gemfile
 gem 'bcrypt', '~> 3.1.7'
 
@@ -28,7 +30,7 @@ gem 'figaro'
 gem 'aws-sdk', '< 2.0'
 
 # Gemfile
-  gem 'paperclip'
+gem 'paperclip'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
