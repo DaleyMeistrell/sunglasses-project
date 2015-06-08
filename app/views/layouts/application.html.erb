@@ -6,6 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= require 'open-uri'
+require 'json'
+open('http://api.wunderground.com/api/67be5ea9d5581cec/geolookup/conditions/q/IA/Cedar_Rapids.json') do |f|
+  json_string = f.read
+  parsed_json = JSON.parse(json_string)
+  location = parsed_json['california']['claremont']
+  temp_f = parsed_json['current_observation']['temp_f']
+  print "Current temperature in #{location} is: #{temp_f}\n"
+end
+%>
+
 </head>
 <body>
 
