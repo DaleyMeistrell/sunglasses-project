@@ -41,17 +41,27 @@ img {
 	color: #000000;
 	background-color: #999999;
 }
-.sun-image {
+.sun-spin {
 	width: 60%;
 	border-radius: 50%;
   	-webkit-transition: -webkit-transform .8s ease-in-out;
-  	transition: transform .8s ease-in-out;
+  	transition: transform .8s ease-in-out; 
 }
 
-.sun-image:hover {
+.sun-spin:hover {
 	-webkit-transform: rotate(360deg);
     transform: rotate(360deg);
 }
+
+/*.sun-shrink {
+	-webkit-transition: -webkit-transform .8s ease-in-out;
+	transition: .8s ease-in-out; 
+}
+
+.sun-shrink:hover {
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+}*/
 
 /*.float {
   -webkit-transition:all .3s ease-out;
