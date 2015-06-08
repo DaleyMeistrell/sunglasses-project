@@ -6,19 +6,32 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= require 'open-uri'
-require 'json'
-open('http://api.wunderground.com/api/67be5ea9d5581cec/geolookup/conditions/q/IA/Cedar_Rapids.json') do |f|
-  json_string = f.read
-  parsed_json = JSON.parse(json_string)
-  location = parsed_json['california']['claremont']
-  temp_f = parsed_json['current_observation']['temp_f']
-  print "Current temperature in #{location} is: #{temp_f}\n"
-end
-%>
 
 </head>
 <body>
+
+
+<% 
+if @current_user
+@url = "http://api.wunderground.com/api/67be5ea9d5581cec/geolookup/conditions/q/#{current_user.zip}.json"
+require 'open-uri'
+
+require 'json'
+open(@url) do |f|
+  json_string = f.read
+  parsed_json = JSON.parse(json_string)
+  @location = parsed_json['location']['city']
+  @temp_f = parsed_json['current_observation']['temp_f']
+   @icon = parsed_json['current_observation']['icon_url']
+ end
+
+end
+%>
+<%= @location %>
+
+<%= @temp_f %>
+<%= image_tag "#{@icon}" %>
+
 
 <div class="container-fluid">    
     <!-- Second navbar for sign in -->
@@ -46,11 +59,13 @@ end
 
 
             <li>
-              <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" id="header-button">Login</a>
+             <!--  <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" id="header-button">Login</a> -->
+             <%= link_to "Login", login_path, :class => "btn btn-default btn-outline btn-circle collapsed", :id => "header-button"  %>
             </li>
             <li><%= link_to "Sign Up", users_new_path, :class => "btn btn-default btn-outline btn-circle collapsed", :id => "header-button"  %></li>
             <li><% if current_user %><%= link_to 'Log Out', logout_path, method: :delete, :class => "btn btn-default btn-sm btn-outline btn-circle collapsed" %></li>
             <li><small>Logged in as:<br><%= current_user.name %></small></li><% end %>
+
               <!-- <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-search" aria-expanded="false" aria-controls="nav-search">Sign Up</a> -->
               <%#= link_to "Sign Up", {controller: "user", action: "new"}, class: "btn btn-default btn-outline btn-circle collapsed"  data-toggle: "collapse" href: "#nav-search" aria-expanded: "false" aria-controls: "nav-search" %>
 

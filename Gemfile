@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Gemfile
 gem 'figaro'
 
+gem 'wunderground'
+
 #lets us use paperclip with S3 easily
 gem 'aws-sdk', '< 2.0'
 
