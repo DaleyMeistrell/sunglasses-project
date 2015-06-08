@@ -6,16 +6,16 @@
 
 <div class="row show-box">
 
-   <div class="col-md-8"><%= image_tag @product.image.url(:large) %></div>
+   <div class="col-md-8 grow"><%= image_tag @product.image.url(:large) %></div>
 	  <br>
 	  <br>
       	<div class="price-box">
 
 	      <div class="col-md-4"><h3>Price: $<%= @product.price %></h3></div>
-	      <div class="col-md-4">Weight: <%= @product.weight %> lbs</div>
-	      <div class="col-md-4">Inventory: <%= @product.inventory %> units</div>
-	      <div class="col-md-4">Description: <%= @product.description %></div>
-	      <div class="col-md-4">Category: <%= @product.category %></div>
+	      <div class="col-md-4"><% @product.weight %></div>
+	      <div class="col-md-4"><% @product.inventory %></div>
+	      <div class="col-md-4"><%= @product.description %></div>
+	      <div class="col-md-4"><%= @product.category %></div>
 		</div>
 </div>
 
