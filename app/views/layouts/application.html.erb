@@ -11,28 +11,6 @@
 <body>
 
 
-<% 
-if @current_user
-@url = "http://api.wunderground.com/api/67be5ea9d5581cec/geolookup/conditions/q/#{current_user.zip}.json"
-require 'open-uri'
-
-require 'json'
-open(@url) do |f|
-  json_string = f.read
-  parsed_json = JSON.parse(json_string)
-  @location = parsed_json['location']['city']
-  @temp_f = parsed_json['current_observation']['temp_f']
-   @icon = parsed_json['current_observation']['icon_url']
- end
-
-end
-%>
-<%= @location %>
-
-<%= @temp_f %>
-<%= image_tag "#{@icon}" %>
-
-
 <div class="container-fluid">    
     <!-- Second navbar for sign in -->
     <nav class="navbar navbar-default navbar-fixed-top">
